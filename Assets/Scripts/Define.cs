@@ -43,4 +43,11 @@ public class Define : MonoBehaviour
         _2424
     }
 
+    [YarnFunction("getObjectName")]
+    public static enum GetObjectName(){
+    return ObjectName;
 }
+   
+}
+
+
