@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     {
         // DialogueRunner.cs에 함수 등록
         FindObjectOfType<Yarn.Unity.DialogueRunner>().AddFunction("GetObjectName", () => GetObjectName());
+        FindObjectOfType<Yarn.Unity.DialogueRunner>().AddFunction("Get_2ChooseNum", () => Get_2ChooseNum());
     }
     //ObjectController에서 접근
     [HideInInspector] public Define.ObjectName objectName;
@@ -41,5 +42,10 @@ public class GameManager : MonoBehaviour
     public string GetObjectName()
     {
         return objectName.ToString();
+    }
+
+    public int Get_2ChooseNum()
+    {
+        return _2chooseNum;
     }
 }
