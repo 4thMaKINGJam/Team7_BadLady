@@ -7,7 +7,7 @@ using static Define;
 /// 1. GameObject.Find("GameManager") 으로 오브젝트 찾기 2. .GetComponent<GameManager>()하기. 3. .objectName 접근해서 무슨 오브젝트 클릭한 상태인지 확인하기
 /// </summary>
 public class ObjcectController : MonoBehaviour
-{    
+{
     [SerializeField] private ObjectName chooseObjectName;
     private GameManager gameManager;
     private void Start()
@@ -22,9 +22,9 @@ public class ObjcectController : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        gameManager.objectName = chooseObjectName;        
+        gameManager.objectName = chooseObjectName;
         //디버그용
-        Debug.Log("chooseObjectName: "+chooseObjectName.ToString()+", objectName: "+gameManager.objectName);
+        Debug.Log("chooseObjectName: " + chooseObjectName.ToString() + ", objectName: " + gameManager.objectName);
         switch (gameManager.objectName)
         {
             //23번: 챙기면 사라지는 가위
@@ -38,9 +38,9 @@ public class ObjcectController : MonoBehaviour
                 gameManager._choose7 = true;
                 break;
         }
-        
-        
-        
+
+
+
     }
 }
 
