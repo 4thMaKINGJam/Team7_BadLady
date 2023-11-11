@@ -47,8 +47,10 @@ public class ObjcectController : MonoBehaviour
             case Define.ObjectName._7:
                 gameManager._choose7 = true;
                 break;
-            case Define.ObjectName._2:
+            case Define.ObjectName._2://★3개 선택지면 3개키고 2개면 2개키되, ★0~부터 키기. 
                 choices[0].SetActive(true);
+                choices[1].SetActive(true);
+                choices[2].SetActive(true);
                 break;
         }
 
