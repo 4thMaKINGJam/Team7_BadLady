@@ -10,6 +10,7 @@ Narrator: What's your actual name, anyway?
         <<set $characterName to "Notbruce">>
     -> My name doesn't matter...
 Narrator: Anyway, hi!
+
 End of the Conversation.
 <<set $characterName = GetObjectName()>>
 안녕하세요, $characterName! 어떻게 지내세요?
