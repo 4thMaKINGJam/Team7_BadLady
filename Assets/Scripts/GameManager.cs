@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static Define;
 
@@ -8,7 +9,9 @@ using static Define;
 /// </summary>
 public class GameManager : MonoBehaviour
 {
-    public string currentString = "";
+ 
+    public TextMeshProUGUI chatBoxText;
+    public GameObject chatBox;
     //ObjectController에서 접근
     [HideInInspector] public Define.ObjectName objectName;
     [HideInInspector] public bool _choose7 = false;
@@ -33,11 +36,28 @@ public class GameManager : MonoBehaviour
     //"편지 봉투 하나를 열어본다" 선택 시 대화문스크립트에서 ++해주어야 함
     //값에 따라 출력되는 대화문이 달라져야 함
     [HideInInspector] public int _12chooseNum = 0;
+
+
     private void Update()
     {
+        //챗박스가 활성화되어있고 화면 클릭도 일어났다면 챗박스 끄기
+        if (chatBox.active )
+        {
+            Invoke("CheckClickChatBox", 0.2f);
+        }
         if (objectName == Define.ObjectName._3)
         {
-            currentString = "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";
+            //계속대입 문제 해결하기
+            chatBoxText.text= "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";                        
+        }
+
+    }
+
+    private void CheckClickChatBox()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            chatBox.SetActive(false);
         }
     }
 }
