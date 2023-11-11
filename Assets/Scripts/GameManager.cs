@@ -42,12 +42,12 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //챗박스가 활성화되어있고 화면 클릭도 일어났다면 챗박스 끄기
-        if (chatBox.active )
+        if (chatBox.active)
         {
             Invoke("CheckClickChatBox", 0.2f);
         }
         //얘를 밑으로 쫙 추가
-        if (SceneManager.GetActiveScene(""))
+        if (SceneManager.GetActiveScene().Equals("PlayerRoomScene"))
         {
             if (objectName == Define.ObjectName._3)
             { 

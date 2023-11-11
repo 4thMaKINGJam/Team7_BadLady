@@ -33,9 +33,12 @@ public class FadeInOut : MonoBehaviour
             if(fadeInAlpha==1f && fadeOutAlpha == 0f)
             {
                 //원상복귀
-                active = false;
+                /*active = false;
                 fadeInAlpha = 0f;
-                fadeOutAlpha = 1f;
+                fadeOutAlpha = 1f;*/
+                
+                //패널이 클릭 막는 문제로 오브젝트 비활성화로 코드변경
+                this.gameObject.SetActive(false);
             }
         }
     }
