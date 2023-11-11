@@ -25,5 +25,22 @@ public class ObjcectController : MonoBehaviour
         gameManager.objectName = chooseObjectName;        
         //디버그용
         Debug.Log("chooseObjectName: "+chooseObjectName.ToString()+", objectName: "+gameManager.objectName);
+        switch (gameManager.objectName)
+        {
+            //23번: 챙기면 사라지는 가위
+            case Define.ObjectName._23:
+                this.gameObject.SetActive(false);
+                break;
+            case Define.ObjectName._18:
+                gameManager._choose18 = true;
+                break;
+            case Define.ObjectName._7:
+                gameManager._choose7 = true;
+                break;
+        }
+        
+        
+        
     }
 }
+
