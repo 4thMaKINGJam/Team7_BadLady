@@ -237,6 +237,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectName: 0
+  _choose7: 0
+  _choose18: 0
+  foundNeckless: 0
+  foundClue: 0
+  bringScissors: 0
+  _2chooseNum: 0
+  _12chooseNum: 0
 --- !u!4 &983513295
 Transform:
   m_ObjectHideFlags: 0
@@ -367,7 +374,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chooseObjectName: 13
-  gameManager: {fileID: 0}
 --- !u!1 &1466421786
 GameObject:
   m_ObjectHideFlags: 0
