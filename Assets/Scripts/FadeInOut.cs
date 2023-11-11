@@ -41,15 +41,15 @@ public class FadeInOut : MonoBehaviour
     }
 
     IEnumerator FadeIn()
-    {         
-        yield return new WaitForSeconds(1f);//여기서 속도 조절 가능~
+    {
+        yield return new WaitForSeconds(2f);//여기서 속도 조절 가능~
         fadeInAlpha += 0.05f;
-        color=new Color(color.r,color.g, color.b,fadeInAlpha);
+        color =new Color(color.r,color.g, color.b,fadeInAlpha);
         image.color = color;
     }
     IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(1f);//여기서 속도 조절 가능~
+        yield return new WaitForSeconds(2f);//여기서 속도 조절 가능~
         fadeOutAlpha -= 0.05f;
         color = new Color(color.r, color.g, color.b, fadeOutAlpha);
         image.color = color;
