@@ -9,7 +9,7 @@ using static Define;
 public class ObjcectController : MonoBehaviour
 {    
     [SerializeField] private ObjectName chooseObjectName;
-    public GameManager gameManager;
+    private GameManager gameManager;
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();

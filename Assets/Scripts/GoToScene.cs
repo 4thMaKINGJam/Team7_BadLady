@@ -24,9 +24,22 @@ public class GoToScene : MonoBehaviour
     {
         SceneManager.LoadScene("GardenScene");
     }
+    //후에 다른 기능으로 변경
     public void GoToDescriptScene()
     {
         SceneManager.LoadScene("DescriptScene");
+    }
+    public void GoToEventPlayerRoomScene() {
+        SceneManager.LoadScene("EventPlayerRoomScene");
+    }
+
+    public void GoToEventLivingRoomScene()
+    {
+        SceneManager.LoadScene("EventLivingRoomScene");
+    }
+    public void GoToEventGardenScene()
+    {
+        SceneManager.LoadScene("EventGardenScene");
     }
     public void Quit()
     {
