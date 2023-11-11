@@ -1,17 +1,10 @@
 title: Start
 ---
-There are Narrator and Bruce.
+Hello! Click on an object to learn more about it.
+I hope this work.
+===
 
-Narrator: Hi there!
-Narrator: What's your actual name, anyway?
-    -> My name is Bruce.
-        <<set $characterName to "Bruce">>
-    -> My name is not Bruce.
-        <<set $characterName to "Notbruce">>
-    -> My name doesn't matter...
-Narrator: Anyway, hi!
-
-End of the Conversation.
-<<set $characterName = GetObjectName()>>
-안녕하세요, $characterName! 어떻게 지내세요?
+title: Object
+---
+You clicked on the object named Circle. It's a fascinating item!
 ===
