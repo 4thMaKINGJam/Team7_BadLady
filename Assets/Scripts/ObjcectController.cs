@@ -10,13 +10,15 @@ using static Define;
 public class ObjcectController : MonoBehaviour
 {
     [SerializeField] private ObjectName chooseObjectName;
+
     private GameManager gameManager;
     public GameObject chatBox;//직접연결
+    //선택지있는오브젝트일때만 넣기
+    [SerializeField] private GameObject[] choices;
     private void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         Debug.Log("chooseObjectName: " + chooseObjectName.ToString() + ", objectName: " + gameManager.objectName);        
-
     }
     /// <summary>
     ///  Collider2D를 가진 2D 오브젝트에 대해 동작할 수 있다
@@ -24,12 +26,15 @@ public class ObjcectController : MonoBehaviour
     ///  //클릭됐을 시 호출되는 메소드
     /// </summary>
     private void OnMouseDown()
-    {
+    {        
+
+        //오브젝트 상태 업뎃
         gameManager.objectName = chooseObjectName;
-        //챗박스 뜨게
+        //챗박스 뜨게: 기본
         chatBox.SetActive(true);
-        //디버그용
+        //*디버그용
         Debug.Log("chooseObjectName: " + chooseObjectName.ToString() + ", objectName: " + gameManager.objectName);
+
         switch (gameManager.objectName)
         {
             //23번: 챙기면 사라지는 가위
@@ -41,6 +46,9 @@ public class ObjcectController : MonoBehaviour
                 break;
             case Define.ObjectName._7:
                 gameManager._choose7 = true;
+                break;
+            case Define.ObjectName._2:
+                choices[0].SetActive(true);
                 break;
         }
 
