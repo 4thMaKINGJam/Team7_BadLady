@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class FadeInOut : MonoBehaviour
 {
-    [SerializeField]private bool active=false; 
+    public bool activate=false; 
     private Image image;
     private Color color;
     private float fadeInAlpha=0f;
@@ -20,7 +20,7 @@ public class FadeInOut : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active)
+        if (activate)
         {
             if (fadeInAlpha != 1f)
             {
@@ -33,7 +33,7 @@ public class FadeInOut : MonoBehaviour
             if(fadeInAlpha==1f && fadeOutAlpha == 0f)
             {
                 //원상복귀
-                /*active = false;
+                /*activate = false;
                 fadeInAlpha = 0f;
                 fadeOutAlpha = 1f;*/
                 
