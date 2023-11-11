@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using static Define;
-
+using UnityEngine.SceneManagement;
+using System.Threading;
 /// <summary>
 /// 상태관할
 /// </summary>
@@ -41,16 +42,19 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //챗박스가 활성화되어있고 화면 클릭도 일어났다면 챗박스 끄기
-        if (chatBox.active )
+        if (chatBox.active)
         {
             Invoke("CheckClickChatBox", 0.2f);
         }
-        if (objectName == Define.ObjectName._3)
+        //얘를 밑으로 쫙 추가
+        if (SceneManager.GetActiveScene().Equals("PlayerRoomScene"))
         {
-            //계속대입 문제 해결하기
-            chatBoxText.text= "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";                        
+            if (objectName == Define.ObjectName._3)
+            { 
+                //계속대입 문제 해결하기
+                chatBoxText.text = "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";
+            }
         }
-
     }
 
     private void CheckClickChatBox()
