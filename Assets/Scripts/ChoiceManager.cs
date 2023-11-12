@@ -16,6 +16,7 @@ public class ChoiceManager : MonoBehaviour
     //초이스박스 텍스트 설정: GameManager에서
     public void onClick()
     {
+        
         Debug.Log(this.gameObject.name + "이 메소드 호출");
         switch (gameManager.objectName)
         {
@@ -47,5 +48,6 @@ public class ChoiceManager : MonoBehaviour
         GameObject.Find("Choice0").SetActive(false);
         GameObject.Find("Choice1").SetActive(false);
         GameObject.Find("Choice2").SetActive(false);
+        gameManager.haveChoices = false;
     }
 }
