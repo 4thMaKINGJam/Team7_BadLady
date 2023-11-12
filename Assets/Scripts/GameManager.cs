@@ -80,32 +80,7 @@ public class GameManager : MonoBehaviour
                 else
                 {
                     string[] lineArray = { "지금 내 몸의 초상화다. 이렇게 큰 단독 초상화라니, 진짜 나도 아니면서 괜히 내가 머쓱해지는 기분이다.", "그나저나 저 시선을 사로잡는 초록색 목걸이.. 내 방의 보석함에는 없었는데?" };
-
-                    if (i == 0)
-                    {   // 첫번째 대사 출력
-                        SpaceBar.SetActive(true);
-                        chatBoxText.text = lineArray[i];
-                        i++;
-                    }
-                    else
-                    {   // 두번째 대사부터
-                        // Check for space key press한 후 대사 출력
-                        if (Input.GetKeyDown(KeyCode.Space))
-                        {
-                            if (i < lineArray.Length)
-                            {
-                                chatBoxText.text = lineArray[i];
-                                i++;
-                            }
-                            else
-                            {
-                                i = 0;  // 대사 개수 초기화
-                                chatBox.SetActive(false);   // 대화창 닫기
-                                SpaceBar.SetActive(false);
-                            }
-                        }
-                    }
-
+                    longLine(lineArray);
                 }
             }
             else if (objectName == Define.ObjectName._8) // 선택지 추가 필요
@@ -119,32 +94,7 @@ public class GameManager : MonoBehaviour
             else if (objectName == Define.ObjectName._10) // need to add Dialogue Choices
             {
                 string[] lineArray = { "매우 비싸 보이는 러그다. 청소하고 관리하려면 매우 힘들겠지.", "혹시나 하는 마음에 러그를 구석구석 조사했다. 러그 밑에서 찢긴 책의 한 페이지를 발견했다.", "' ...세계와 세계를 잇고 시간과 공간을 뛰어넘는 힘을 가질지어니, 이 주문은 바로 모빌리코푸스 엑스파시오 이다. 이 두 가지 조건을 반드시 기억하라. 조건을 충족시키지 않으면 무슨 일이 일어날지 모른다.' 라고 적혀있다." };
-
-                if (i == 0)
-                {   // 첫번째 대사 출력
-                    SpaceBar.SetActive(true);
-                    chatBoxText.text = lineArray[i];
-                    i++;
-                }
-                else
-                {   // 두번째 대사부터
-                    // Check for space key press한 후 대사 출력
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        if (i < lineArray.Length)
-                        {
-                            chatBoxText.text = lineArray[i];
-                            i++;
-                        }
-                        else
-                        {
-                            i = 0;  // 대사 개수 초기화
-                            chatBox.SetActive(false);   // 대화창 닫기
-                            SpaceBar.SetActive(false);
-                        }
-                    }
-                }
-
+                longLine(lineArray);
             }
             else if (objectName == Define.ObjectName._11)
             {
@@ -155,32 +105,7 @@ public class GameManager : MonoBehaviour
                 else if (_choose21 == true && (_choose18 == true && _choose7 == true)) // need to add Dialogue Choice
                 {
                     string[] lineArray = { "에밀리라는 하녀가 누군진 모르겠으나, 혹시나 하는 마음에 꽂혀있는 꽃을 꺼내고 꽃병 안을 보았다.", "꽃병 속에서 그림 속 초록색 목걸이를 찾았다. 잘 챙겨둬야겠다." };
-
-                    if (i == 0)
-                    {   // 첫번째 대사 출력
-                        SpaceBar.SetActive(true);
-                        chatBoxText.text = lineArray[i];
-                        i++;
-                    }
-                    else
-                    {   // 두번째 대사부터
-                        // Check for space key press한 후 대사 출력
-                        if (Input.GetKeyDown(KeyCode.Space))
-                        {
-                            if (i < lineArray.Length)
-                            {
-                                chatBoxText.text = lineArray[i];
-                                i++;
-                            }
-                            else
-                            {
-                                i = 0;  // 대사 개수 초기화
-                                chatBox.SetActive(false);   // 대화창 닫기
-                                SpaceBar.SetActive(false);
-                            }
-                        }
-
-                    }
+                    longLine(lineArray);
                 }
 
             }
@@ -190,89 +115,17 @@ public class GameManager : MonoBehaviour
                 {
                     case 1:
                         string[] lineArray1 = { "협탁 위에 편지 봉투 3개가 올려져 있다. 그중 하나를 열어보았다.", "로사벨라 영애 잘 지내셨나요? 저번에 그 요망한 아네이스 영애에게 당했던 일 너무 마음에 두지 마세요. 우리는 언제나 당신의 편이랍니다. ...", "편지에는 시시콜콜한 잡담으로 가득하다. 소설 속에서 로사벨라가 아네이스에게 망신 주려다가 역으로 당하는 에피소드가 기억난다. 아무래도 그 에피소드를 말하는 것 같은데?" };
-
-                        if (i == 0)
-                        {   // 첫번째 대사 출력
-                            SpaceBar.SetActive(true);
-                            chatBoxText.text = lineArray1[i];
-                            i++;
-                        }
-                        else
-                        {   // 두번째 대사부터
-                            // Check for space key press한 후 대사 출력
-                            if (Input.GetKeyDown(KeyCode.Space))
-                            {
-                                if (i < lineArray1.Length)
-                                {
-                                    chatBoxText.text = lineArray1[i];
-                                    i++;
-                                }
-                                else
-                                {
-                                    i = 0;  // 대사 개수 초기화
-                                    chatBox.SetActive(false);   // 대화창 닫기
-                                    SpaceBar.SetActive(false);
-                                }
-                            }
-                        }
+                        longLine(lineArray1);
                         clickEnvelope++;
                         break;
                     case 2:
                         string[] lineArray2 = { "두 번째 편지봉투를 열어보았다.", "로사벨라 영애, 그 이야기 들으셨나요? 글쎄, 아네이스 영애가 어제 열린 연회에서 음식을 먹고 쓰러진 거 있죠? 알고 보니 아네이스 영애가 견과류 알레르기가 있다네요. ... ", "그 뒤로는 쓸모없는 이야기만 있다." };
-
-                        if (i == 0)
-                        {   // 첫번째 대사 출력
-                            SpaceBar.SetActive(true);
-                            chatBoxText.text = lineArray2[i];
-                            i++;
-                        }
-                        else
-                        {   // 두번째 대사부터
-                            // Check for space key press한 후 대사 출력
-                            if (Input.GetKeyDown(KeyCode.Space))
-                            {
-                                if (i < lineArray2.Length)
-                                {
-                                    chatBoxText.text = lineArray2[i];
-                                    i++;
-                                }
-                                else
-                                {
-                                    i = 0;  // 대사 개수 초기화
-                                    chatBox.SetActive(false);   // 대화창 닫기
-                                    SpaceBar.SetActive(false);
-                                }
-                            }
-                        }
+                        longLine(lineArray2);
                         clickEnvelope++;
                         break;
                     case 3:
                         string[] lineArray3 = { "세 번째 편지봉투를 열어보았다.", "봉투를 여니 정갈하고 유려한 글씨체로 적힌 편지지가 나왔다.", "'친애하는 로사벨라 영애에게, 저번에 그 일은 정말 죄송하게 생각하고 있어요. 고의가 아니었지만 찾아봬서 한번 이야기할 수 있을까요?  ...초대 기다리고 있을게요, 아네이스 드림' ", "여자 주인공이 나에게 쓴 편지다. 대충 읽어봐도 여자 주인공이 얼마나 사려 깊고 착한 캐릭터인지 느껴져." };
-
-                        if (i == 0)
-                        {   // 첫번째 대사 출력
-                            SpaceBar.SetActive(true);
-                            chatBoxText.text = lineArray3[i];
-                            i++;
-                        }
-                        else
-                        {   // 두번째 대사부터
-                            // Check for space key press한 후 대사 출력
-                            if (Input.GetKeyDown(KeyCode.Space))
-                            {
-                                if (i < lineArray3.Length)
-                                {
-                                    chatBoxText.text = lineArray3[i];
-                                    i++;
-                                }
-                                else
-                                {
-                                    i = 0;  // 대사 개수 초기화
-                                    chatBox.SetActive(false);   // 대화창 닫기
-                                    SpaceBar.SetActive(false);
-                                }
-                            }
-                        }
+                        longLine(lineArray3);
                         clickEnvelope++;
                         break;
 
@@ -313,34 +166,10 @@ public class GameManager : MonoBehaviour
         // ******* Event2 Scene *******
         else if (SceneManager.GetActiveScene().name.Equals("Event2Scene"))
         {
-            if (objectName == Define.ObjectName._111 && bringScissors == true)  // need Modification
+            if (objectName == Define.ObjectName._111 && bringScissors == true)  
             {
                 string[] lineArray = { "마침 정원용 가위를 챙겨두긴 했는데 이럴 때 쓰일 줄이야.", "가위로 커튼을 찢어 대충 꼬아서 밧줄을 만들어 침대 다리에 묶었다.", "로사벨라: 정말 미친 짓 같지만.. 이 방법밖에 없어.", "나는 커튼으로 만든 밧줄을 잡고 창문 밖으로 뛰어내렸다. 내려가면서 손에 마찰이 일어나 손에 화끈거리고 너무 아프지만, 죽는 것보단 낫겠지!" };
-
-                if (i == 0)
-                {   // 첫번째 대사 출력
-                    SpaceBar.SetActive(true);
-                    chatBoxText.text = lineArray[i];
-                    i++;
-                }
-                else
-                {   // 두번째 대사부터
-                    // Check for space key press한 후 대사 출력
-                    if (Input.GetKeyDown(KeyCode.Space))
-                    {
-                        if (i < lineArray.Length)
-                        {
-                            chatBoxText.text = lineArray[i];
-                            i++;
-                        }
-                        else
-                        {
-                            i = 0;  // 대사 개수 초기화
-                            chatBox.SetActive(false);   // 대화창 닫기
-                            SpaceBar.SetActive(false);
-                        }
-                    }
-                }
+                longLine(lineArray);
             }
             else if (objectName == Define.ObjectName._222)
             {
@@ -365,4 +194,32 @@ public class GameManager : MonoBehaviour
                 SpaceBar.SetActive(false);
             }
         }
+
+    private void longLine(string[] lineArray) 
+    {
+        if (i == 0)
+        {   // 첫번째 대사 출력
+            SpaceBar.SetActive(true);
+            chatBoxText.text = lineArray[i];
+            i++;
+        }
+        else
+        {   // 두번째 대사부터
+            // Check for space key press한 후 대사 출력
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (i < lineArray.Length)
+                {
+                    chatBoxText.text = lineArray[i];
+                    i++;
+                }
+                else
+                {
+                    i = 0;  // 대사 개수 초기화
+                    chatBox.SetActive(false);   // 대화창 닫기
+                    SpaceBar.SetActive(false);
+                }
+            }
+        }
+    }
 }
