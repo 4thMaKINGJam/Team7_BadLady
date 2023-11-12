@@ -26,10 +26,14 @@ public class ObjcectController : MonoBehaviour
     ///  //클릭됐을 시 호출되는 메소드
     /// </summary>
     private void OnMouseDown()
-    {        
+    {
+        //선택지 뜨는동안은 다른 오브젝트 상호작용 되면 안 됨
+        if (!gameManager.haveChoices)
+        {
+            gameManager.objectName = chooseObjectName;
+        }
+        
 
-        //오브젝트 상태 업뎃
-        gameManager.objectName = chooseObjectName;
         //챗박스 뜨게: 기본
         chatBox.SetActive(true);
         //*디버그용
@@ -48,6 +52,7 @@ public class ObjcectController : MonoBehaviour
                 gameManager._choose7 = true;
                 break;
             case Define.ObjectName._2://★3개 선택지면 3개키고 2개면 2개키되, ★0~부터 키기. 
+                gameManager.haveChoices = true;
                 choices[0].SetActive(true);
                 choices[1].SetActive(true);
                 choices[2].SetActive(true);

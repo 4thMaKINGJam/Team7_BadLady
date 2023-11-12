@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 3
+  chooseObjectName: 5
   chatBox: {fileID: 387895263}
   choices:
   - {fileID: 1068646057}
@@ -1451,8 +1451,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935198790}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1692,7 +1692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1083858621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 1
+  chooseObjectName: 3
   chatBox: {fileID: 387895263}
   choices:
   - {fileID: 1068646057}
@@ -2031,7 +2031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 5
+  chooseObjectName: 7
   chatBox: {fileID: 387895263}
   choices: []
 --- !u!1 &1585509168
@@ -2163,7 +2163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 4
+  chooseObjectName: 6
   chatBox: {fileID: 387895263}
   choices:
   - {fileID: 1068646057}
@@ -2632,8 +2632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 0
-  chatBox: {fileID: 0}
+  chooseObjectName: 2
+  chatBox: {fileID: 387895263}
   choices: []
 --- !u!1 &2019807542
 GameObject:
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 2
+  chooseObjectName: 4
   chatBox: {fileID: 387895263}
   choices: []
 --- !u!60 &2019807546
