@@ -7,9 +7,18 @@ using UnityEngine;
 /// </summary>
 public class GoToScene : MonoBehaviour
 {
+    [SerializeField] private AudioSource effectSound;
+    public void playEffect()
+    {
+        if(effectSound!= null)
+        {
+            effectSound.Play();
+        }
+    }
     public void GoToEvent1Scene()
     {
         SceneManager.LoadScene("Event1Scene");
+
     }
     public void GoToStartScene()
     {

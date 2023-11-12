@@ -16,7 +16,7 @@ public class ChoiceManager : MonoBehaviour
     //초이스박스 텍스트 설정: GameManager에서
     public void onClick()
     {
-        
+     
         Debug.Log(this.gameObject.name + "이 메소드 호출");
         switch (gameManager.objectName)
         {
