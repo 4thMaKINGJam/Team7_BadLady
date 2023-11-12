@@ -9,6 +9,7 @@ using static Define;
 /// </summary>
 public class ObjcectController : MonoBehaviour
 {
+    [SerializeField] private AudioSource effectSound;
     [SerializeField] private ObjectName chooseObjectName;
 
     private GameManager gameManager;
@@ -27,6 +28,11 @@ public class ObjcectController : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
+        //소리나오기
+        if (effectSound != null)
+        {
+            effectSound.Play();
+        }
         //선택지 뜨는동안은 다른 오브젝트 상호작용 되면 안 됨
         if (!gameManager.haveChoices)
         {
@@ -41,6 +47,7 @@ public class ObjcectController : MonoBehaviour
 
         switch (gameManager.objectName)
         {
+
             //23번: 챙기면 사라지는 가위
             case Define.ObjectName._23:
                 this.gameObject.SetActive(false);
@@ -56,6 +63,11 @@ public class ObjcectController : MonoBehaviour
                 choices[0].SetActive(true);
                 choices[1].SetActive(true);
                 choices[2].SetActive(true);
+                break;
+            case Define.ObjectName._4:
+                gameManager.haveChoices = true;
+                choices[0].SetActive(true);
+                choices[1].SetActive(true);
                 break;
         }
 

@@ -7,7 +7,10 @@ using UnityEngine;
 /// </summary>
 public class GoToScene : MonoBehaviour
 {
-
+    public void GoToEvent1Scene()
+    {
+        SceneManager.LoadScene("Event1Scene");
+    }
     public void GoToStartScene()
     {
         SceneManager.LoadScene("StartScene");
@@ -29,17 +32,13 @@ public class GoToScene : MonoBehaviour
     {
         SceneManager.LoadScene("DescriptScene");
     }
-    public void GoToEventPlayerRoomScene() {
-        SceneManager.LoadScene("EventPlayerRoomScene");
+    public void GoToEvent2Scene() {
+        SceneManager.LoadScene("Event2Scene");
     }
 
-    public void GoToEventLivingRoomScene()
+    public void GoToEvent3Scene()
     {
-        SceneManager.LoadScene("EventLivingRoomScene");
-    }
-    public void GoToEventGardenScene()
-    {
-        SceneManager.LoadScene("EventGardenScene");
+        SceneManager.LoadScene("Event3Scene");
     }
     public void Quit()
     {

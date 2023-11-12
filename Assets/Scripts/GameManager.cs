@@ -52,13 +52,18 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool _2investigateChoose= false;
     [HideInInspector] public bool _2quit = false;
 
+    [HideInInspector] public bool _4inviteWoman= false;
+    [HideInInspector] public bool _4quit= false;
+
     //"편지 봉투 하나를 열어본다" 선택 시 대화문스크립트에서 ++해주어야 함
     //값에 따라 출력되는 대화문이 달라져야 함
     [HideInInspector] public int _12chooseNum = 0;
+
+    private GoToScene goToScene;
     private void Start()
     {
         fadeInOut = GameObject.Find("FadeInOutPanel").GetComponent<FadeInOut>();
-        
+        goToScene = new GoToScene();
     }
 
     private void Update()
@@ -88,7 +93,32 @@ public class GameManager : MonoBehaviour
                     //*계속대입 문제 해결하기
                     chatBoxText.text = "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";
                     break;
-                case Define.ObjectName._2:
+                case Define.ObjectName._18:
+                    chatBoxText.text = " {서랍 여는 효과음} > '책상 앞에는 사물함이 달려 있다. 열어보니 다양한 보석들이 가지런히 전시된 게 보석함인 듯싶다.' / '하지만 보석함 가운데에 누가 봐도 한 공간이 비어있다. 여기에 장신구 하나가 보관되어 있었던 게 분명하다.'";
+                    break;
+                case Define.ObjectName._5:
+                    goToScene.GoToLivingRoomScene();
+                    break;
+                //↓선택지들
+                case Define.ObjectName._4:
+                    choices[0].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "여자 주인공을 저택으로 초대한다.";
+                    choices[1].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "그만둔다.";
+
+                    chatBoxText.text = "‘책상 위에 잉크와 편지지가 놓여있다. 이것으로 여자 주인공에게 티파티 초대장을 보낼 수 있을 것 같다.’ \r\n'초대장을 보내면 더 이상 조사할 수 없게 된다. 그래도 초대할까?'";//선택지와 나란히 뜨는 대화창.
+
+                    //1번선택지 분기점
+                    if (_4inviteWoman)
+                    {
+                        ifChoiceSetChatBoxText("‘당신은 이 소설의  주인공, 아네이스에게 티파티 초대장을 보냈다.’ ");
+                        goToScene.GoToEvent1Scene();
+                    }
+                    //2번선택지 분기점
+                    if (_4quit)
+                    {
+                        ifChoiceSetChatBoxText("그만두자.");
+                    }
+                    break;
+                    case Define.ObjectName._2:
                     //★예시
                     choices[0].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "침대에 누워 휴식을 취한다.";
                     choices[1].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "침대를 조사한다.";

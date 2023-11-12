@@ -40,6 +40,21 @@ public class ChoiceManager : MonoBehaviour
                 //선택지 켰던거 끄기
                 turnOffChoices();
                 break;
+
+            case Define.ObjectName._4:
+                if (this.gameObject.name == "Choice0")
+                {
+                    gameManager._4inviteWoman = true;
+                    gameManager._4quit = false;
+                }
+                if (this.gameObject.name == "Choice1")
+                {
+                    gameManager._4inviteWoman = false;
+                    gameManager._4quit = true;
+                }
+                //선택지 켰던거 끄기
+                turnOffChoices();
+                break;
         }
 
     }
