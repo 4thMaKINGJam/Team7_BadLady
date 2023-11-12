@@ -71,8 +71,10 @@ public class GameManager : MonoBehaviour
 
 
         //얘를 밑으로 쫙 추가
+   
         if (SceneManager.GetActiveScene().name.Equals("PlayerRoomScene"))
         {
+            
             if (objectName == Define.ObjectName._3)
             {
                 //*계속대입 문제 해결하기
@@ -107,14 +109,12 @@ public class GameManager : MonoBehaviour
                     ifChoiceSetChatBoxText("2번선택지 분기점: 코루틴 대체해야함. 구현 완료하시면 넣기");
                     //2번 엔딩 사진 뜨는 씬으로 이동-> 클릭 시 다시 PlayerRoom씬 로드
                     Debug.Log("아직 엔딩사진 안 나와서 나중 구현");
-
                 }
                 //2번 선택지 분기점
                 if (_2investigateChoose)
                 {
                     startFadeInOut();
                     ifChoiceSetChatBoxText("2번선택지 분기점: 코루틴 대체해야함. 구현 완료하시면 넣기");
-
                 }
                 //3번 선택지 분기점
                 if (_2quit)
@@ -123,6 +123,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+        
         //가든씬
         if (SceneManager.GetActiveScene().name.Equals("GardenScene"))
         {

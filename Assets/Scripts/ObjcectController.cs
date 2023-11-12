@@ -26,10 +26,12 @@ public class ObjcectController : MonoBehaviour
     ///  //클릭됐을 시 호출되는 메소드
     /// </summary>
     private void OnMouseDown()
-    {        
-
-        //오브젝트 상태 업뎃
-        gameManager.objectName = chooseObjectName;
+    {
+        //오브젝트 상태 업뎃: 선택지가 켜져있을때는 업뎃하면 x
+        if (!choices[0].active)
+        {
+            gameManager.objectName = chooseObjectName;
+        }
         //챗박스 뜨게: 기본
         chatBox.SetActive(true);
         //*디버그용
