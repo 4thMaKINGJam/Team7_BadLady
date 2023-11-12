@@ -161,8 +161,9 @@ MonoBehaviour:
   audioPen: {fileID: 0}
   audioShoes: {fileID: 8300000, guid: 5a6ffe06d3e2bce4ba61798642ce296b, type: 3}
   audioDesk: {fileID: 0}
-  audioAccessory: {fileID: 8300000, guid: 1093eef0fd579c74899e4a2eecfdb339, type: 3}
   audioFastShoes: {fileID: 8300000, guid: 4f8c7dfb44b897946bb12bce749529f5, type: 3}
+  audioAccessory: {fileID: 8300000, guid: 1093eef0fd579c74899e4a2eecfdb339, type: 3}
+  haveChoices: 0
   chatBoxText: {fileID: 1895384762300785580}
   chatBox: {fileID: 1895384762108734520}
   choices: []
@@ -203,7 +204,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 51c5a69e7ed94d34f88a38d9e62f35c9, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 73c38557280e4f349b7c128f7c91c8f5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -387,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 13
+  chooseObjectName: 15
   chatBox: {fileID: 1895384762108734520}
   choices: []
 --- !u!60 &269520489
@@ -549,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 17
+  chooseObjectName: 19
   chatBox: {fileID: 1895384762108734520}
   choices: []
 --- !u!60 &325494431
@@ -1084,7 +1085,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 18
+  chooseObjectName: 1
   chatBox: {fileID: 1895384762108734520}
   choices: []
 --- !u!212 &425320446
@@ -1519,9 +1520,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 15
+  chooseObjectName: 17
   chatBox: {fileID: 1895384762108734520}
-  choices: []
+  choices:
+  - {fileID: 6278619982407932929}
+  - {fileID: 6278619981609607359}
 --- !u!60 &471939552
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2080,7 +2083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 16
+  chooseObjectName: 18
   chatBox: {fileID: 1895384762108734520}
   choices: []
 --- !u!60 &841213671
@@ -2481,7 +2484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4accedd5266b4b4986d69a51545d16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chooseObjectName: 14
+  chooseObjectName: 16
   chatBox: {fileID: 1895384762108734520}
   choices: []
 --- !u!60 &2119153489

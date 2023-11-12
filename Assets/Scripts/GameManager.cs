@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioClip audioPen;
     public AudioClip audioShoes;
     public AudioClip audioDesk;
+    public AudioClip audioFastShoes;
     public AudioClip audioAccessory;
     ///////////////////////////////////////////////////
 
@@ -180,14 +181,16 @@ public class GameManager : MonoBehaviour
             }
             if (objectName == Define.ObjectName._22)
             {
-                
-                string sen1 = "베르사유 궁전 뺨치는 화려한 저택이다.";
-                string sen2 = "이 저택이 내 집이라니 대한민국에서는 작은 내 집 마련도 힘든데 그냥 이 몸으로 사는 것도 나쁘지 않을지도?";
-
-                NextComment(sen1, sen2);
 
                 choices[0].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "응접실로 되돌아가기";
                 choices[1].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "그만두기";
+
+                chatBoxText.text = "정원용 가위다. 분명 어디 쓸 곳이 있을 것 같은데, 슬쩍 몰래 챙겨둬야겠다.";
+
+                //string sen1 = "베르사유 궁전 뺨치는 화려한 저택이다.";
+                //string sen2 = "이 저택이 내 집이라니 대한민국에서는 작은 내 집 마련도 힘든데 그냥 이 몸으로 사는 것도 나쁘지 않을지도?";
+
+                //NextComment(sen1, sen2);
 
 
                 if (_22investigateChoose == true)
@@ -221,7 +224,7 @@ public class GameManager : MonoBehaviour
                 chatBoxText.text = "가만히 보고만 있어도 기분이 좋아지는 고풍스러운 스타일의 분수다";
             }
         }
-        if (SceneManager.GetActiveScene().name.Equals("Event_GardenScene"))
+        if (SceneManager.GetActiveScene().name.Equals("Event3Scene"))
         {
             if (objectName == Define.ObjectName._2222)
             {
