@@ -6,6 +6,8 @@ public class Define : MonoBehaviour
 {
     public enum ObjectName
     {
+        _2626,
+        _26,
         _1,
         _2,
         _3,
