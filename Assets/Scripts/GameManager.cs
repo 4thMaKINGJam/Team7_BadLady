@@ -313,14 +313,36 @@ public class GameManager : MonoBehaviour
         // ******* Event2 Scene *******
         else if (SceneManager.GetActiveScene().name.Equals("Event2Scene"))
         {
-            //else if(objectName == Define.ObjectName._111)  // need Modification
-            //{
-            //    if(bringScissors == true)
-            //    {
-            //        chatBoxText.text = "마침 정원용 가위를 챙겨두긴 했는데 이럴 때 쓰일 줄이야.";
-            //    }
-            //}
-            if (objectName == Define.ObjectName._222)
+            if (objectName == Define.ObjectName._111 && bringScissors == true)  // need Modification
+            {
+                string[] lineArray = { "마침 정원용 가위를 챙겨두긴 했는데 이럴 때 쓰일 줄이야.", "가위로 커튼을 찢어 대충 꼬아서 밧줄을 만들어 침대 다리에 묶었다.", "로사벨라: 정말 미친 짓 같지만.. 이 방법밖에 없어.", "나는 커튼으로 만든 밧줄을 잡고 창문 밖으로 뛰어내렸다. 내려가면서 손에 마찰이 일어나 손에 화끈거리고 너무 아프지만, 죽는 것보단 낫겠지!" };
+
+                if (i == 0)
+                {   // 첫번째 대사 출력
+                    SpaceBar.SetActive(true);
+                    chatBoxText.text = lineArray[i];
+                    i++;
+                }
+                else
+                {   // 두번째 대사부터
+                    // Check for space key press한 후 대사 출력
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        if (i < lineArray.Length)
+                        {
+                            chatBoxText.text = lineArray[i];
+                            i++;
+                        }
+                        else
+                        {
+                            i = 0;  // 대사 개수 초기화
+                            chatBox.SetActive(false);   // 대화창 닫기
+                            SpaceBar.SetActive(false);
+                        }
+                    }
+                }
+            }
+            else if (objectName == Define.ObjectName._222)
             {
                 chatBoxText.text = "지금 여유롭게 누워있을 때가 아니야.";
             }
