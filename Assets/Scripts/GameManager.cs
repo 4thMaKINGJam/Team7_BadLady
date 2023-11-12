@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public AudioClip audioShoes;
     public AudioClip audioDesk;
     public AudioClip audioAccessory;
-    ///////////////////////////////////////////////////
-
+    public AudioClip audioFastShoes;
+    private IEnumerator NC;
     private FadeInOut fadeInOut;
     public TextMeshProUGUI chatBoxText;
     public GameObject chatBox;
@@ -53,6 +53,15 @@ public class GameManager : MonoBehaviour
     //"편지 봉투 하나를 열어본다" 선택 시 대화문스크립트에서 ++해주어야 함
     //값에 따라 출력되는 대화문이 달라져야 함
     [HideInInspector] public int _12chooseNum = 0;
+
+
+
+
+    ///GarndenScen분기문
+    ///
+
+    [HideInInspector] public bool _22investigateChoose = false;
+    [HideInInspector] public bool _22quit = false;
     private void Start()
     {
         fadeInOut = GameObject.Find("FadeInOutPanel").GetComponent<FadeInOut>();
@@ -125,7 +134,9 @@ public class GameManager : MonoBehaviour
         }
         //가든씬
         if (SceneManager.GetActiveScene().name.Equals("GardenScene"))
-        {
+        {  
+
+
 
             if (objectName == Define.ObjectName._20)
             {
@@ -157,10 +168,25 @@ public class GameManager : MonoBehaviour
             }
             if (objectName == Define.ObjectName._22)
             {
+                
                 string sen1 = "베르사유 궁전 뺨치는 화려한 저택이다.";
                 string sen2 = "이 저택이 내 집이라니 대한민국에서는 작은 내 집 마련도 힘든데 그냥 이 몸으로 사는 것도 나쁘지 않을지도?";
-                StartCoroutine(NextComment(sen1, sen2));
 
+                NextComment(sen1, sen2);
+
+                choices[0].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "응접실로 되돌아가기";
+                choices[1].GetComponent<RectTransform>().transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "그만두기";
+
+
+                if (_22investigateChoose == true)
+                {
+                    SceneManager.LoadScene("LivingRoom");
+                }
+
+                if (_22quit == true)
+                {
+                    ifChoiceSetChatBoxText("그만두자.");
+                }
             }
 
             if (objectName == Define.ObjectName._23)
@@ -230,6 +256,7 @@ public class GameManager : MonoBehaviour
     {
         chatBoxText.text = sen1;
         yield return new WaitForSeconds(1.0f);
+
         chatBoxText.text = sen2;
     }
     IEnumerator Ending(string sen1, string sen2, string sen3, string sen4, string sen5, string sen6)
@@ -263,6 +290,7 @@ public class GameManager : MonoBehaviour
 
 
     }
+
     void Playsound(string action)
     {
         switch (action)
@@ -284,6 +312,9 @@ public class GameManager : MonoBehaviour
                 break;
             case "shoe":
                 audioSource.clip = audioShoes;
+                break;
+            case "fastshoe":
+                audioSource.clip = audioFastShoes;
                 break;
             case "desk":
                 audioSource.clip = audioDesk;

@@ -152,16 +152,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01169402bc5b6dc46b9f59237970cd2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioPlay: {fileID: 0}
+  audiowater: {fileID: 0}
+  audiobed: {fileID: 0}
+  audioPaper: {fileID: 0}
+  audioPen: {fileID: 0}
+  audioShoes: {fileID: 0}
+  audioDesk: {fileID: 0}
+  audioAccessory: {fileID: 0}
+  audioFastShoes: {fileID: 0}
   chatBoxText: {fileID: 1895384762300785580}
   chatBox: {fileID: 1895384762108734520}
+  choices: []
   objectName: 0
   _choose7: 0
   _choose18: 0
   foundNeckless: 0
   foundClue: 0
   bringScissors: 0
-  _2chooseNum: 0
+  _2breakChooseNum: 0
+  _2investigateChoose: 0
+  _2quit: 0
   _12chooseNum: 0
+  _22investigateChoose: 0
+  _22quit: 0
 --- !u!4 &174716638
 Transform:
   m_ObjectHideFlags: 0
@@ -237,12 +252,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
-  m_Sprite: {fileID: 21300000, guid: a3f85709b19918345bbfe3c92b22617e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f87756ad0d2f64842ae2560290673923, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.05, y: 1.98}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -277,6 +292,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chooseObjectName: 33
   chatBox: {fileID: 1895384762108734520}
+  choices: []
 --- !u!61 &269520489
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -295,7 +311,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5.05, y: 1.98}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 5.05, y: 1.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -363,12 +379,12 @@ SpriteRenderer:
   m_SortingLayerID: -190236797
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f6a692b157a5cc14c8461f7cbc1f3956, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36ebb6ebf31b9e244a8c22912283b1d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 5.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -403,6 +419,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chooseObjectName: 35
   chatBox: {fileID: 1895384762108734520}
+  choices: []
 --- !u!61 &325494431
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -421,7 +438,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 19.2, y: 5.52}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 19.2, y: 5.52}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -462,6 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chooseObjectName: 36
   chatBox: {fileID: 1895384762108734520}
+  choices: []
 --- !u!212 &425320446
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -503,12 +521,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 88786af8946e35b45b51d3b91867b9a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 780ff90d27193724c9fd54809d3f09c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 4.95, y: 4.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -547,7 +565,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.95, y: 4.64}
-    newSize: {x: 1, y: 2}
+    newSize: {x: 4.95, y: 4.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -615,12 +633,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f5036b2103873f40a360bd31f087915, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b450b3e11d6c4a246a158e3c13a3372b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.76, y: 4.84}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -655,6 +673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chooseObjectName: 34
   chatBox: {fileID: 1895384762108734520}
+  choices: []
 --- !u!61 &471939552
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -673,7 +692,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 10.76, y: 4.84}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 10.76, y: 4.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -874,7 +893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8aefd7afe30fc2942a475764dd49d493, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ad1076db0007eb244a696eeae4199b86, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
