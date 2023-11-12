@@ -5,22 +5,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class FadeInOut : MonoBehaviour
 {
-    public bool activate=false; 
+    [SerializeField] private bool active = false;
     private Image image;
     private Color color;
-    private float fadeInAlpha=0f;
+    private float fadeInAlpha = 0f;
     private float fadeOutAlpha = 1f;
     // Start is called before the first frame update
     void Start()
     {
-        image=GetComponent<Image>();
+        image = GetComponent<Image>();
         color = image.color;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (activate)
+        if (active)
         {
             if (fadeInAlpha != 1f)
             {
@@ -29,11 +29,11 @@ public class FadeInOut : MonoBehaviour
             if (fadeOutAlpha != 0f)
             {
                 StartCoroutine(FadeOut());
-            } 
-            if(fadeInAlpha==1f && fadeOutAlpha == 0f)
+            }
+            if (fadeInAlpha == 1f && fadeOutAlpha == 0f)
             {
                 //원상복귀
-                activate = false;
+                active = false;
                 fadeInAlpha = 0f;
                 fadeOutAlpha = 1f;
             }
@@ -51,8 +51,8 @@ public class FadeInOut : MonoBehaviour
         {
             fadeInAlpha += 0.005f;
         }
-        
-        color =new Color(color.r,color.g, color.b,fadeInAlpha);
+
+        color = new Color(color.r, color.g, color.b, fadeInAlpha);
         image.color = color;
     }
     IEnumerator FadeOut()

@@ -64,5 +64,6 @@ public class ChoiceManager : MonoBehaviour
         GameObject.Find("Choice1").SetActive(false);
         GameObject.Find("Choice2").SetActive(false);
         gameManager.haveChoices = false;
+
     }
 }

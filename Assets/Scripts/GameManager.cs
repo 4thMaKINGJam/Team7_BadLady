@@ -5,11 +5,14 @@ using UnityEngine;
 using static Define;
 using UnityEngine.SceneManagement;
 using System.Threading;
+using Unity.VisualScripting;
+
 /// <summary>
 /// 상태관할
 /// </summary>
 public class GameManager : MonoBehaviour
 {
+    private float timer = 0f; 
     //오디오관련
     public AudioSource audioSource;
     public AudioClip audioPlay;
@@ -58,7 +61,8 @@ public class GameManager : MonoBehaviour
     //"편지 봉투 하나를 열어본다" 선택 시 대화문스크립트에서 ++해주어야 함
     //값에 따라 출력되는 대화문이 달라져야 함
     [HideInInspector] public int _12chooseNum = 0;
-
+    private bool isOnce=false;
+    private int i = 0;
     private GoToScene goToScene;
     private void Start()
     {
@@ -68,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        isOnce = true;
         //챗박스가 활성화되어있고
         //선택란은 비활성화되어있고
         //화면 클릭도 일어났다면 챗박스 끄기
@@ -75,7 +80,7 @@ public class GameManager : MonoBehaviour
         if (chatBox.active && (!choices[0].active))//★최소 선택란은 1개인데 그 1개는 [0]번 인덱스에 위치. 따라서 [0]만 체크
         {
             Invoke("CheckClickChatBox", 0.2f);
-            
+    
         }
 
 
@@ -83,18 +88,73 @@ public class GameManager : MonoBehaviour
    
         if (SceneManager.GetActiveScene().name.Equals("PlayerRoomScene"))
         {
-
+            
             switch (objectName)
             {
                 case Define.ObjectName._1:
-                    chatBoxText.text = " ‘우아한 창틀과 고급스럽고 두꺼운 소재의 커튼이다. 창밖으로는 비현실적으로 아름다운 정원이 보인다.' \r\n/ '밑을 내려다보니 상당히 높이 있는 게 떨어지면 큰일 날지도..’";
+
+                    string[] lineArray2 = { " ‘우아한 창틀과 고급스럽고 두꺼운 소재의 커튼이다. 창밖으로는 비현실적으로 아름다운 정원이 보인다.' ", "'밑을 내려다보니 상당히 높이 있는 게 떨어지면 큰일 날지도..’" };
+                    if (i == 0)
+                    {   // 첫번째 대사 출력
+                        chatBoxText.text = lineArray2[i];
+                        i++;
+                    }
+                    else
+                    {   // 두번째 대사부터
+                        // Check for space key press한 후 대사 출력
+
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            if (i < lineArray2.Length)
+                            {
+
+                                chatBoxText.text = lineArray2[i];
+                                i++;
+                            }
+                            else
+                            {
+                                i = 0;  // 대사 개수 초기화
+                                chatBox.SetActive(false);   // 대화창 닫기
+                            }
+                        }
+                    }
+
                     break;
                 case Define.ObjectName._3:
+                    timer += Time.deltaTime; 
                     //*계속대입 문제 해결하기
-                    chatBoxText.text = "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' '살짝 손을 들어 얼굴을 건드려 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";
+                    chatBoxText.text = "‘화려한 틀이 인상적인 거울 속에서 적발의 날카롭게 생겼지만 아름다운 여성이 보인다.' \n'살짝 손을 들어 얼굴을 만져 보지만 여전히 이 모습이 나라는 게 믿기지 않아.’";
+                    if (timer >= 5f)
+                    {
+                        SceneManager.LoadScene("MirrorScene");
+                    }
                     break;
                 case Define.ObjectName._18:
-                    chatBoxText.text = " {서랍 여는 효과음} > '책상 앞에는 사물함이 달려 있다. 열어보니 다양한 보석들이 가지런히 전시된 게 보석함인 듯싶다.' / '하지만 보석함 가운데에 누가 봐도 한 공간이 비어있다. 여기에 장신구 하나가 보관되어 있었던 게 분명하다.'";
+                    string[] lineArray = { "'책상 앞에는 사물함이 달려 있다. 열어보니 다양한 보석들이 가지런히 전시된 게 보석함인 듯싶다.' ", " '하지만 보석함 가운데에 누가 봐도 한 공간이 비어있다. 여기에 장신구 하나가 보관되어 있었던 게 분명하다.'"};
+                    if (i == 0)
+                    {   // 첫번째 대사 출력
+                        chatBoxText.text = lineArray[i];
+                        i++;
+                    }
+                    else
+                    {   
+                        // 두번째 대사부터
+                        // Check for space key press한 후 대사 출력
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            if (i < lineArray.Length)
+                            {
+
+                                chatBoxText.text = lineArray[i];
+                                i++;
+                            }
+                            else
+                            {
+                                i = 0;  // 대사 개수 초기화
+                                chatBox.SetActive(false);   // 대화창 닫기
+                            }
+                        }
+                    }
                     break;
                 case Define.ObjectName._5:
                     goToScene.GoToLivingRoomScene();
@@ -129,36 +189,44 @@ public class GameManager : MonoBehaviour
                     if (_2breakChooseNum == 1 || _2breakChooseNum == 2 || _2breakChooseNum == 4 || (_2breakChooseNum > 5 && !_2investigateChoose))
                     {
                         //1. 페이드인아웃을 켠다
-                        startFadeInOut();
+                        if (!isOnce)
+                        {
+                            isOnce = true;
+                        }
+                        
+                     
                         ifChoiceSetChatBoxText("'포근한 침대에 눕자 깜박 잠에 들었다. 일어나 보니 벌써 다음날이 되었다.'");
                     }
                     if (_2breakChooseNum == 3)
                     {
                         //1. 페이드인아웃을 켠다
-                        startFadeInOut();
-                        ifChoiceSetChatBoxText("'또 다음날이 되었다.' / '나 이렇게 계속 지내도 되는 걸까? 문득 두려워졌다.'");
+                        ifChoiceSetChatBoxText("'또 다음날이 되었다. \n나 이렇게 계속 지내도 되는 걸까? 문득 두려워졌다.'");
+                                              
                     }
                     if (_2breakChooseNum == 5)
                     {
+                        timer += Time.deltaTime;
                         //페이드인아웃을 켠다
-                        startFadeInOut();
-                        //*긴 대사-> 코루틴대체
-                        ifChoiceSetChatBoxText("2번선택지 분기점: 코루틴 대체해야함. 구현 완료하시면 넣기");
-                        //2번 엔딩 사진 뜨는 씬으로 이동-> 클릭 시 다시 PlayerRoom씬 로드
+                        ifChoiceSetChatBoxText("'??: 달라스 영애, 그 이야기 들었어요? 로사벨라 영애가 사교계를 완전히 떠났대요.' \r\n/ '??: 아니, 로사벨라 영애야말로 사교계의 꽃이었는데 이게 무슨 일이죠?' \r\n/ '??: 지금 다들 쉬쉬하는데, 그 집 하녀가 말하기로는 완전히 미쳐서 방 밖을 아예 나오지 않는대요.' \r\n/ '??: 세상에나, 자신이 차기 황태자비라며 콧대 높던 그 모습은 어디 가고...'");
+
+                        if (timer >= 7)
+                        {
+                            //2번 엔딩 사진 뜨는 씬으로 이동-> 클릭 시 다시 PlayerRoom씬 로드
+                            SceneManager.LoadScene("Ending2");
+                        }
                         
-                        Debug.Log("아직 엔딩사진 안 나와서 나중 구현");
                     }
                     //2번 선택지 분기점
                     if (_2investigateChoose)
                     {
-                        startFadeInOut();
-                        ifChoiceSetChatBoxText("2번선택지 분기점: 코루틴 대체해야함. 구현 완료하시면 넣기");
+                        ifChoiceSetChatBoxText("'침대를 샅샅이 조사했지만 별다른 건 없다.'");
                     }
                     //3번 선택지 분기점
                     if (_2quit)
                     {
                         ifChoiceSetChatBoxText("그만두자.");
                     }
+
                     break;
             }
   
@@ -348,10 +416,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void startFadeInOut()
-    {
-        fadeInOut.activate=true;
-    }
+
 
 
     //★선택지 뜨고난 후 챗박스 텍스트 세팅    
@@ -359,14 +424,11 @@ public class GameManager : MonoBehaviour
     {
         
         //2. 대화창만남긴다.: choice클래스에서 클릭감지후 active false
-
         //3. 대화창 내용 변화: 선택란이 꺼졌을 시에.
         if (!choices[0].active)//★최소 선택란은 1개인데 그 1개는 [0]번 인덱스에 위치. 따라서 [0]만 체크
         {
             chatBoxText.text = text;   
         }
-        
-        
-        
+
     }
 }
