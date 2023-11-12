@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     //값에 따라 출력되는 대화문이 달라져야 함
     [HideInInspector] public int _12chooseNum = 0;
 
+    // 한 아이템당 대사가 여러 개일 때 사용할 변수
+    bool dialogueStarted = false;
+    int i = 1;
 
     private void Update()
     {
@@ -67,18 +70,26 @@ public class GameManager : MonoBehaviour
         {
             if(objectName == Define.ObjectName._6)
             {
-                int cnt = 0;
                 // chatBoxText.text = "길고 큰 유럽식 창문이다. 밖으로 아름다운 정원의 풍경이 보인다.";
-                void cntText1()
-                {
-                    chatBoxText.text = "지금 내 몸의 초상화다. 이렇게 큰 단독 초상화라니, 진짜 나도 아니면서 괜히 내가 머쓱해지는 기분이다.";
-                    cnt++;
-                    cntText2();
-                }
-                void cntText2()
-                {
-                    chatBoxText.text = "그나저나 저 시선을 사로잡는 초록색 목걸이.. 내 방의 보석함에는 없었는데?";
-                    cnt++;
+                string[] lineArray = { "1. 첫번째 대사.(스페이스바를 눌러주세요)  ", "2. 두번째 대사", "3. 세번째 대사" };
+                //chatBoxText.text = lineArray[0];
+
+
+                    // Check for space key press
+                    if (Input.GetKeyDown(KeyCode.Space))
+                    {
+                        if (i < lineArray.Length)
+                        {
+                            chatBoxText.text = lineArray[i];
+                            i++;
+                        }
+                        else
+                        {
+                            // Dialogue ends
+                            dialogueStarted = false;
+                            i = 1;
+                            chatBox.SetActive(false);
+                    }
                 }
             }
             else if(objectName == Define.ObjectName._7)
